@@ -1,32 +1,96 @@
-.App {
-  text-align: center;
+.scroll-container {
+    height: 100%;
+    overflow: auto;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.scroll-container table {
+    width: 100%;
+    background: #f1f1f1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.scroll-container table thead th {
+    padding: 20px;
+    background: #d8d8d8;
 }
 
-.App-link {
-  color: #61dafb;
+.scroll-container table tbody td {
+    padding: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.scroll-container table tbody tr {
+    cursor: pointer;
+}
+
+.scroll-container table tbody tr:nth-child(odd) {
+    background: white;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 200000;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#overlay > .container {
+    position: relative;
+    background: #dce4ef;
+    border: 1px solid #b9c9df;
+    border-radius: 2px;
+    flex-direction: column;
+    overflow: auto;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+#overlay > .container > .modal-close {
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#overlay > .container > .modal-close > svg {
+    fill: #5b616b;
+    transition: fill 0.2s;
+}
+
+#overlay > .container > .modal-close:hover > svg {
+    fill: #0071bc;
+}
+
+#overlay > .container .modal-title {
+    height: 50px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    background: #cbd7e7;
+    border-bottom: 1px solid #b9c9df;
+    font-size: 20px;
+    padding: 0 40px 0 10px;
+}
+
+#overlay > .container .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    flex-grow: 1;
+    overflow: auto;
+}
+
+#overlay > .container .modal-content > .modal-text {
+    font-size: 16px;
+}
+
+#overlay > .container .modal-content > .modal-buttons {
+    display: flex;
+    margin-top: auto;
+    justify-content: space-between;
 }
